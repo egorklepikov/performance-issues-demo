@@ -59,7 +59,6 @@
                     class="com.intellij.performance.issues.demo.SafePoints"
                     text="Safe Points">
             </action>
-
         </group>
     </actions>
 </idea-plugin>
