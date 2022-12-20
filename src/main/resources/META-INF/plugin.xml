@@ -40,9 +40,9 @@
                     text="High CPU Usage">
             </action>
 
-            <action id="com.intellij.performance.issues.demo.UIFreezeAction"
-                    class="com.intellij.performance.issues.demo.UIFreezeAction"
-                    text="UI Freeze for 20 Seconds">
+            <action id="com.intellij.performance.issues.demo.UIFreezeLongReadAction"
+                    class="com.intellij.performance.issues.demo.UIFreezeLongReadAction"
+                    text="UI Freeze: Long Read Action">
             </action>
 
             <action id="com.intellij.performance.issues.demo.TaskBackgroundableDeadlockAction"
