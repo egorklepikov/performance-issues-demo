@@ -45,6 +45,11 @@
                     text="UI Freeze: Long Read Action">
             </action>
 
+            <action id="com.intellij.performance.issues.demo.UIFreezeLongUIOperationAction"
+                    class="com.intellij.performance.issues.demo.UIFreezeLongUIOperationAction"
+                    text="UI Freeze: Long Operation in UI Thread">
+            </action>
+
             <action id="com.intellij.performance.issues.demo.TaskBackgroundableDeadlockAction"
                     class="com.intellij.performance.issues.demo.TaskBackgroundableDeadlockAction"
                     text="Deadlock">
@@ -59,6 +64,9 @@
                     class="com.intellij.performance.issues.demo.SafePoints"
                     text="Safe Points">
             </action>
+
+
+
         </group>
     </actions>
 </idea-plugin>
