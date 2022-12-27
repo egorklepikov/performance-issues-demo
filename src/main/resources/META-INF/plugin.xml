@@ -50,9 +50,14 @@
                     text="UI Freeze: Long Operation in UI Thread">
             </action>
 
-            <action id="com.intellij.performance.issues.demo.TaskBackgroundableDeadlockAction"
-                    class="com.intellij.performance.issues.demo.TaskBackgroundableDeadlockAction"
-                    text="Deadlock">
+            <action id="com.intellij.performance.issues.demo.CommonDeadlock"
+                    class="com.intellij.performance.issues.demo.CommonDeadlock"
+                    text="Common Deadlock">
+            </action>
+
+            <action id="com.intellij.performance.issues.demo.ComplexDeadlock"
+                    class="com.intellij.performance.issues.demo.ComplexDeadlock"
+                    text="ComplexDeadlock">
             </action>
 
             <action id="com.intellij.performance.issues.demo.GCOverheat"

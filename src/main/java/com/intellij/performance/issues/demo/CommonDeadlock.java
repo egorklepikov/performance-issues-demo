@@ -12,13 +12,13 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import static java.lang.Thread.sleep;
 
-public class TaskBackgroundableDeadlockAction extends AnAction {
+public class CommonDeadlock extends AnAction {
   private final Lock lock1 = new ReentrantLock(true);
   private final Lock lock2 = new ReentrantLock(true);
 
   @Override
   public void actionPerformed(@NotNull AnActionEvent e) {
-    Task.Backgroundable task1 = new Task.Backgroundable(e.getProject(), "Some task", true) {
+    Task.Backgroundable task1 = new Task.Backgroundable(e.getProject(), "First task", true) {
       public void run(@NotNull ProgressIndicator indicator) {
         lock1.lock();
         System.out.println("lock1 acquired, waiting to acquire lock2.");
@@ -36,7 +36,7 @@ public class TaskBackgroundableDeadlockAction extends AnAction {
         lock1.unlock();
       }
     };
-    Task.Backgroundable task2 = new Task.Backgroundable(e.getProject(), "Some task", true) {
+    Task.Backgroundable task2 = new Task.Backgroundable(e.getProject(), "Second task", true) {
       public void run(@NotNull ProgressIndicator indicator) {
         lock2.lock();
         System.out.println("lock2 acquired, waiting to acquire lock1.");
