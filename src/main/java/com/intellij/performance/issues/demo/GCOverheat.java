@@ -15,8 +15,12 @@ import java.util.List;
 public class GCOverheat extends AnAction {
   @Override
   public void actionPerformed(@NotNull AnActionEvent e) {
-    Task.Backgroundable task = new Task.Backgroundable(e.getProject(), "GCOverheat", false) {
+    Task.Backgroundable task = new Task.Backgroundable(e.getProject(), "GCOverheat", true) {
       public void run(@NotNull ProgressIndicator indicator) {
+        recursiveMemoryFlood();
+      }
+
+      private void recursiveMemoryFlood() {
         Runtime env = Runtime.getRuntime();
         List<Long[]> arrayList = new ArrayList<>();
         while ((env.maxMemory() - env.totalMemory()) + env.freeMemory() > 30 * 1024 * 1024) {
@@ -27,6 +31,12 @@ public class GCOverheat extends AnAction {
           } catch (InterruptedException ex) {
             throw new RuntimeException(ex);
           }
+        }
+        try {
+          Thread.sleep(3000);
+          recursiveMemoryFlood();
+        } catch (InterruptedException ex) {
+          throw new RuntimeException(ex);
         }
       }
     };
