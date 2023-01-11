@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import static java.lang.Thread.sleep;
 
-public class CommonDeadlock extends AnAction {
+public class EndlessBackgroundTaskDeadlock extends AnAction {
   private final Lock lock1 = new ReentrantLock(true);
   private final Lock lock2 = new ReentrantLock(true);
 
